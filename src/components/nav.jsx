@@ -25,6 +25,7 @@ function Nav(props) {
   const navItems = [
     // links
     <NavLink to="/">Home</NavLink>,
+    <NavLink to="/add">add book</NavLink>,
     <NavLink onClick={logout} className="logout">
       Logout
     </NavLink>,

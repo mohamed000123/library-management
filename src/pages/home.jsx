@@ -1,7 +1,45 @@
+import noBooks from "../assets/noBooks.jpeg";
+import BookCard from "../components/bookCard";
+import { useEffect, useState } from "react";
+import styles from "../style/bookCard.module.css"
+
 function Home() {
+  const [books, setBooks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async function () {
+      try {
+        const res = await fetch(`http://localhost:8000/books`, {
+          credentials: "include",
+        });
+        const data = await res.json();
+        setBooks(data);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+      }
+    })();
+  }, []);
+
+  if (isLoading) {
+    return <div></div>;
+  }
   return (
     <>
-      <div className="home"></div>
+      <div className={styles.container}>
+        {books.length > 0 ? (
+          <>
+            <BookCard books={books}></BookCard>
+          </>
+        ) : (
+          <>
+            <h2>the library is empty for now</h2>
+            <img src={noBooks} className={styles.noBooks} />
+          </>
+        )}
+      </div>
     </>
   );
 }

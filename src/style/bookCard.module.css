@@ -1,0 +1,16 @@
+.container {
+  margin-top: 15px;
+}
+.noBooks{
+  width:80%;
+  height:75vh
+}
+.book {
+  border: 1px solid rgba(255, 0, 0, 0.649);
+  margin-bottom: 5px;
+  margin-left: 5px;
+  max-width: 570px;
+  border-radius: 7px;
+  background-color: rgba(222, 184, 135, 0.492);
+  text-indent: 5px;
+}

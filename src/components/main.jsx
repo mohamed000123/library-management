@@ -1,7 +1,7 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 // pages
 import Home from "../pages/home";
-
+import AddBook from "../pages/addBook";
 // components
 import NotFound from "./notFound";
 import Nav from "./nav";
@@ -26,6 +26,15 @@ const Main = () => {
             <>
               <Nav />
               <Home />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/add"
+          element={
+            <>
+              <Nav />
+              <AddBook />
             </>
           }
         ></Route>
