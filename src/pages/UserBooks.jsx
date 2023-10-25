@@ -1,16 +1,16 @@
 import noBooks from "../assets/noBooks.jpeg";
 import BookCard from "../components/bookCard";
 import { useEffect, useState } from "react";
-import styles from "../style/bookCard.module.css"
+import styles from "../style/bookCard.module.css";
 
-function Home() {
+function UserBooks() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async function () {
       try {
-        const res = await fetch(`http://localhost:8000/books`, {
+        const res = await fetch(`http://localhost:8000/user-books`, {
           credentials: "include",
         });
         const data = await res.json();
@@ -45,4 +45,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default UserBooks;

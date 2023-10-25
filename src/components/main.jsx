@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 // pages
 import Home from "../pages/home";
 import AddBook from "../pages/addBook";
+import UserBooks from "../pages/UserBooks";
 // components
 import NotFound from "./notFound";
 import Nav from "./nav";
@@ -35,6 +36,15 @@ const Main = () => {
             <>
               <Nav />
               <AddBook />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/user-books"
+          element={
+            <>
+              <Nav />
+              <UserBooks />
             </>
           }
         ></Route>
