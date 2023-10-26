@@ -36,7 +36,7 @@ function Home() {
           </>
         ) : (
           <>
-            <h2>the library is empty for now</h2>
+            <h2>no new books in the library for now</h2>
             <img src={noBooks} className={styles.noBooks} />
           </>
         )}

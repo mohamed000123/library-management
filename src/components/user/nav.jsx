@@ -37,6 +37,7 @@ function Nav(props) {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     }).then(() => {
+      localStorage.clear()
       navigate("/login");
     });
   }

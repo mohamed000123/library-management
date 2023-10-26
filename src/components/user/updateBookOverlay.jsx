@@ -12,8 +12,7 @@ export function UpdateBookOverlay({
   const [author, setAuthor] = useState(book.author);
   const [copiesNumber, setCopiesNumber] = useState(book.availableCopies);
   const [error, setError] = useState(false);
-  console.log(book);
-  console.log(title);
+
   // elements
   const overlay = useRef(null);
   function handelClose() {

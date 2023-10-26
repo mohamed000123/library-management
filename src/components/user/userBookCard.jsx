@@ -18,7 +18,8 @@ export default function UserBookCard({ books, getBooks }) {
       if (data) {
         setIsDeleted(true);
         setTimeout(() => {
-          getBooks()
+          getBooks();
+          setIsDeleted(false);
         }, 3000);
       }
     } catch (err) {
@@ -64,8 +65,7 @@ export default function UserBookCard({ books, getBooks }) {
                 available copies:
                 <span style={{ color: "blue" }}>{book.availableCopies}</span>
               </p>
-              {/* ssssss ! */}
-              {book.status == "pending" ? (
+              {book.status == "aproved" ? (
                 <>
                   <span
                     className={styles.delete}
