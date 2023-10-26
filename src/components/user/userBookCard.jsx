@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../style/bookCard.module.css";
+import styles from "../../style/bookCard.module.css";
 import Toast from "./toast";
 import { UpdateBookOverlay } from "./updateBookOverlay";
 export default function UserBookCard({ books }) {

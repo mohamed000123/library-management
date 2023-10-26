@@ -1,11 +1,11 @@
 // styling
-import styles from "../style/addBook.module.css";
+import styles from "../../style/addBook.module.css";
 // react
 import { useState } from "react";
 // routing
 import { useNavigate } from "react-router-dom";
 // components
-import Toast from "../components/toast";
+import Toast from "../../components/user/toast";
 function AddBook() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");

@@ -1,4 +1,4 @@
-import styles from "../style/bookCard.module.css";
+import styles from "../../style/bookCard.module.css";
 import { useEffect, useRef, useState } from "react";
 export function UpdateBookOverlay({ setShowOverlay, bookISBN, book }) {
   //   state

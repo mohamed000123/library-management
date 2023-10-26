@@ -2,7 +2,7 @@
 import Login from "./auth/login";
 import Signup from "./auth/signup";
 // components
-import Main from "./components/main";
+import Main from "./components/user/main";
 // style
 import "../src/style/index.css"
 // routing

@@ -1,7 +1,7 @@
-import noBooks from "../assets/noBooks.jpeg";
-import UserBookCard from "../components/userBookCard";
+import noBooks from "../../assets/noBooks.jpeg";
+import UserBookCard from "../../components/user/userBookCard";
 import { useEffect, useState } from "react";
-import styles from "../style/bookCard.module.css";
+import styles from "../../style/bookCard.module.css";
 
 function UserBooks() {
   const [books, setBooks] = useState([]);

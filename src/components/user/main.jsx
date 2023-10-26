@@ -1,9 +1,9 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 // pages
-import Home from "../pages/home";
-import AddBook from "../pages/addBook";
-import UserBooks from "../pages/UserBooks";
-import Reserved from "../pages/reserved";
+import Home from "../../pages/user/home";
+import AddBook from "../../pages/user/addBook";
+import UserBooks from "../../pages/user/UserBooks";
+import Reserved from "../../pages/user/reserved";
 // components
 import NotFound from "./notFound";
 import Nav from "./nav";

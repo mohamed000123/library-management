@@ -1,16 +1,16 @@
-import noBooks from "../assets/noBooks.jpeg";
-import ReservedBookCard from './../components/reservedBookCard';
+import noBooks from "../../assets/noBooks.jpeg";
+import BookCard from "../../components/user/bookCard";
 import { useEffect, useState } from "react";
-import styles from "../style/bookCard.module.css";
+import styles from "../../style/bookCard.module.css"
 
-function Reserved() {
+function Home() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async function () {
       try {
-        const res = await fetch(`http://localhost:8000/user-reserved-books`, {
+        const res = await fetch(`http://localhost:8000/books`, {
           credentials: "include",
         });
         const data = await res.json();
@@ -31,11 +31,12 @@ function Reserved() {
       <div className={styles.container}>
         {books.length > 0 ? (
           <>
-            <ReservedBookCard books={books}></ReservedBookCard>
+            <h2>available books</h2>
+            <BookCard books={books}></BookCard>
           </>
         ) : (
           <>
-            <h2>no reserved books</h2>
+            <h2>the library is empty for now</h2>
             <img src={noBooks} className={styles.noBooks} />
           </>
         )}
@@ -44,4 +45,4 @@ function Reserved() {
   );
 }
 
-export default Reserved;
+export default Home;

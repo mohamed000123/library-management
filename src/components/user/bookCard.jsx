@@ -1,4 +1,4 @@
-import styles from "../style/bookCard.module.css";
+import styles from "../../style/bookCard.module.css";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 

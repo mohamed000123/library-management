@@ -1,4 +1,4 @@
-import styles from "../style/bookCard.module.css";
+import styles from "../../style/bookCard.module.css";
 export default function ReservedBookCard({ books, userBooks }) {
   return (
     <>
