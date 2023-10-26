@@ -1,10 +1,12 @@
 // pages
 import Login from "./auth/login";
 import Signup from "./auth/signup";
+import Admin from "./pages/admin/admin";
 // components
-import Main from "./components/user/main";
+import Main from "./components/main";
+import AdminNav from "./components/admin/nav";
 // style
-import "../src/style/index.css"
+import "../src/style/index.css";
 // routing
 import {
   createBrowserRouter,
@@ -17,6 +19,15 @@ const appRouter = createBrowserRouter(
     <>
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+      <Route
+        path="/admin"
+        element={
+          <>
+            <AdminNav/>
+            <Admin />
+          </>
+        }
+      />
       <Route path="/*" element={<Main />} />
     </>
   )

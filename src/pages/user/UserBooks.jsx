@@ -7,20 +7,21 @@ function UserBooks() {
   const [books, setBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  async function getBooks() {
+    try {
+      const res = await fetch(`http://localhost:8000/user-books`, {
+        credentials: "include",
+      });
+      const data = await res.json();
+      setBooks(data);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+    }
+  }
   useEffect(() => {
-    (async function () {
-      try {
-        const res = await fetch(`http://localhost:8000/user-books`, {
-          credentials: "include",
-        });
-        const data = await res.json();
-        setBooks(data);
-        setIsLoading(false);
-      } catch (err) {
-        console.log(err);
-        setIsLoading(false);
-      }
-    })();
+    getBooks();
   }, []);
 
   if (isLoading) {
@@ -31,7 +32,7 @@ function UserBooks() {
       <div className={styles.container}>
         {books.length > 0 ? (
           <>
-            <UserBookCard books={books}></UserBookCard>
+            <UserBookCard books={books} getBooks={getBooks}></UserBookCard>
           </>
         ) : (
           <>

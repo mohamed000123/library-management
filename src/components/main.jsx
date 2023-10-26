@@ -1,12 +1,13 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 // pages
-import Home from "../../pages/user/home";
-import AddBook from "../../pages/user/addBook";
-import UserBooks from "../../pages/user/UserBooks";
-import Reserved from "../../pages/user/reserved";
+import Home from "../pages/user/home";
+import AddBook from "../pages/user/addBook";
+import UserBooks from "../pages/user/UserBooks";
+import Reserved from "../pages/user/reserved";
+
 // components
 import NotFound from "./notFound";
-import Nav from "./nav";
+import Nav from "./user/nav";
 //react
 import { useEffect } from "react";
 

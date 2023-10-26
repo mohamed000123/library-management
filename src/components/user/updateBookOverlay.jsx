@@ -1,6 +1,11 @@
 import styles from "../../style/bookCard.module.css";
-import { useEffect, useRef, useState } from "react";
-export function UpdateBookOverlay({ setShowOverlay, bookISBN, book }) {
+import { useRef, useState } from "react";
+export function UpdateBookOverlay({
+  setShowOverlay,
+  bookISBN,
+  book,
+  getBooks,
+}) {
   //   state
   const [title, setTitle] = useState(book.title);
   const [description, setDescription] = useState(book.description);
@@ -34,7 +39,7 @@ export function UpdateBookOverlay({ setShowOverlay, bookISBN, book }) {
       if (!data.success) {
         setError(data.message);
       }
-      window.location.reload();
+      getBooks();
     } catch (err) {
       console.log(err);
     }

@@ -9,11 +9,14 @@ const Login = () => {
   // logged in user redirect
   const navigate = useNavigate();
   useEffect(() => {
-    if (document.cookie) {
+    const role = localStorage.getItem("role")
+    if (role == "user") {
       navigate("/");
+    } else if (role == "admin") {
+      navigate("/admin");
     }
   }, []);
-  //
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
@@ -55,8 +58,11 @@ const Login = () => {
               credentials: "include",
             });
             const data = await res.json();
-            if (data.user) {
+            localStorage.setItem("role",data.role)
+            if (data.role == "user") {
               navigate("/");
+            } else if (data.role == "admin") {
+              navigate("/admin");
             } else {
               setError(data.message);
             }

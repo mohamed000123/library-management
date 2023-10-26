@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../../style/bookCard.module.css";
 import Toast from "./toast";
 import { UpdateBookOverlay } from "./updateBookOverlay";
-export default function UserBookCard({ books }) {
+export default function UserBookCard({ books, getBooks }) {
   const [isDeleted, setIsDeleted] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
   const [bookISBN, setBookISBN] = useState("");
@@ -18,7 +18,7 @@ export default function UserBookCard({ books }) {
       if (data) {
         setIsDeleted(true);
         setTimeout(() => {
-          window.location.reload();
+          getBooks()
         }, 3000);
       }
     } catch (err) {
@@ -64,7 +64,8 @@ export default function UserBookCard({ books }) {
                 available copies:
                 <span style={{ color: "blue" }}>{book.availableCopies}</span>
               </p>
-              {book.status !== "pending" ? (
+              {/* ssssss ! */}
+              {book.status == "pending" ? (
                 <>
                   <span
                     className={styles.delete}
@@ -95,6 +96,7 @@ export default function UserBookCard({ books }) {
 
       {showOverlay && book && (
         <UpdateBookOverlay
+          getBooks={getBooks}
           book={book}
           showOverlay={showOverlay}
           bookISBN={bookISBN}
