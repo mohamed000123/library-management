@@ -93,11 +93,14 @@ export default function UserBookCard({ books }) {
         <h2>no books available</h2>
       )}
 
-      <UpdateBookOverlay
-        book={book}
-        showOverlay={showOverlay}
-        bookISBN={bookISBN}
-      ></UpdateBookOverlay>
+      {showOverlay && book && (
+        <UpdateBookOverlay
+          book={book}
+          showOverlay={showOverlay}
+          bookISBN={bookISBN}
+          setShowOverlay={setShowOverlay}
+        ></UpdateBookOverlay>
+      )}
     </>
   );
 }
