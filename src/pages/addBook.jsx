@@ -9,7 +9,6 @@ function AddBook() {
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [copiesNumber, setCopiesNumber] = useState("");
-  const [bookCover, setBookCover] = useState("");
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   async function addBook(e) {
@@ -22,14 +21,13 @@ function AddBook() {
           author: author,
           description: description,
           availableCopies: copiesNumber,
-          bookCover: bookCover,
         }),
         headers: { "Content-Type": "application/json" },
         credentials: "include",
       });
       const data = await res.json();
       if (data.success) {
-        navigate("/");
+        navigate("/user-books");
       } else {
         setError(data.message);
       }
@@ -46,7 +44,7 @@ function AddBook() {
           <input
             type="text"
             className={styles.input}
-            placeholder="parcel title"
+            placeholder="book title"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
@@ -56,7 +54,7 @@ function AddBook() {
           <input
             type="text"
             className={styles.input}
-            placeholder="parcel description"
+            placeholder="book description"
             onChange={(e) => {
               setDescription(e.target.value);
             }}
@@ -65,7 +63,7 @@ function AddBook() {
           <input
             type="text"
             className={styles.input}
-            placeholder="parcel description"
+            placeholder="author"
             onChange={(e) => {
               setAuthor(e.target.value);
             }}
@@ -74,7 +72,7 @@ function AddBook() {
           <input
             type="text"
             className={styles.input}
-            placeholder="parcel description"
+            placeholder="no of copies"
             onChange={(e) => {
               setCopiesNumber(e.target.value);
             }}

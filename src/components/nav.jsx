@@ -27,6 +27,7 @@ function Nav(props) {
     <NavLink to="/">Home</NavLink>,
     <NavLink to="/add">add book</NavLink>,
     <NavLink to="/user-books">your books</NavLink>,
+    <NavLink to="/reserved-books">reserved </NavLink>,
     <NavLink onClick={logout} className="logout">
       Logout
     </NavLink>,
