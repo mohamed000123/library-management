@@ -19,7 +19,7 @@ export default function BookCard({ books }) {
       console.log(err);
     }
   }
-  async function handelOrder() {}
+
   return (
     <>
       {books.length > 0 ? (
@@ -38,32 +38,15 @@ export default function BookCard({ books }) {
                 description:
                 <span style={{ color: "blue" }}>{book.description}</span>
               </p>
-              {book.availableCopies > 0 ? (
-                <Button
-                  variant="contained"
-                  className={styles.btn}
-                  onClick={() => {
-                    handelResrve(book.ISBN);
-                  }}
-                >
-                  reserve
-                </Button>
-              ) : (
-                <>
-                  <span style={{ color: "red" }}>
-                    This book is not available
-                  </span>
-                  <Button
-                    variant="text"
-                    className={styles.btn}
-                    onClick={() => {
-                      handelOrder(book.ISBN);
-                    }}
-                  >
-                    order one
-                  </Button>
-                </>
-              )}
+              <Button
+                variant="contained"
+                className={styles.btn}
+                onClick={() => {
+                  handelResrve(book.ISBN);
+                }}
+              >
+                reserve
+              </Button>
             </div>
           );
         })

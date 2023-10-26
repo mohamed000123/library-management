@@ -4,12 +4,15 @@ import styles from "../style/addBook.module.css";
 import { useState } from "react";
 // routing
 import { useNavigate } from "react-router-dom";
+// components
+import Toast from "../components/toast";
 function AddBook() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [copiesNumber, setCopiesNumber] = useState("");
   const [error, setError] = useState(false);
+  const [isCreated, setIsCreated] = useState(false);
   const navigate = useNavigate();
   async function addBook(e) {
     e.preventDefault();
@@ -27,7 +30,10 @@ function AddBook() {
       });
       const data = await res.json();
       if (data.success) {
-        navigate("/user-books");
+        setIsCreated(true);
+        setTimeout(() => {
+          navigate("/user-books");
+        }, 3000);
       } else {
         setError(data.message);
       }
@@ -81,6 +87,12 @@ function AddBook() {
           <button id="btn">add book</button>
         </form>
       </div>
+      {isCreated && (
+        <Toast
+          message="book is pending until it is approved by one of admins"
+          bgcolor="blue"
+        ></Toast>
+      )}
     </>
   );
 }

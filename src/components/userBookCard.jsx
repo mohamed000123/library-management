@@ -64,22 +64,28 @@ export default function UserBookCard({ books }) {
                 available copies:
                 <span style={{ color: "blue" }}>{book.availableCopies}</span>
               </p>
-              <span
-                className={styles.delete}
-                onClick={() => {
-                  handelDelete(book.ISBN);
-                }}
-              >
-                <i className="fa fa-trash" aria-hidden="true"></i>
-              </span>
-              <span
-                className={styles.update}
-                onClick={() => {
-                  handelUpdate(book.ISBN);
-                }}
-              >
-                <i className="fas fa-edit"></i>
-              </span>
+              {book.status !== "pending" ? (
+                <>
+                  <span
+                    className={styles.delete}
+                    onClick={() => {
+                      handelDelete(book.ISBN);
+                    }}
+                  >
+                    <i className="fa fa-trash" aria-hidden="true"></i>
+                  </span>
+                  <span
+                    className={styles.update}
+                    onClick={() => {
+                      handelUpdate(book.ISBN);
+                    }}
+                  >
+                    <i className="fas fa-edit"></i>
+                  </span>
+                </>
+              ) : (
+                <p style={{ color: "red" }}>waiting for approval (pending)</p>
+              )}
             </div>
           );
         })
