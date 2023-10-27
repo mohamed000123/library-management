@@ -23,3 +23,4 @@ simple library management app with these features:
 
 5- see other users books and reserve a book if you want
 
+6- serach in the available books in the library (by title, description or author)
