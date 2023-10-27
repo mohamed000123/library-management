@@ -121,3 +121,20 @@ textarea {
 .disappear {
   display: none;
 }
+/* search */
+.search {
+  border-left: 2px solid navy;
+  border-bottom: 2px solid navy;
+  width: fit-content;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.search button {
+  margin: 0px !important;
+}
+.search input {
+  height: 25px;
+  border: none;
+  outline: none;
+  width: 250px;
+}
